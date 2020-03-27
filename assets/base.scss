@@ -8,12 +8,24 @@ h3,
 h4,
 h5,
 h6,
-form {
+div,
+form,
+input {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+}
+
+body {
   color: #666;
   font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+
+}
+
+input {
+
+  outline: none;
 }
 
 ul {
@@ -22,9 +34,54 @@ ul {
 
 a {
   text-decoration: none;
+  color: #333;
+
+  &:hover {
+    color: red;
+  }
 }
 
 img {
   border: 0;
   vertical-align: middle;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+img,
+svg {
+  border: 0;
+  vertical-align: middle;
+}
+
+.container {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    float: left;
+    width: (100%/12)*$i;
+  }
+}
+
+.gutter {
+  [class^=col-] {
+    padding: 0 5px;
+  }
+
+  &.row {
+    margin: 0 -5px;
+  }
 }
